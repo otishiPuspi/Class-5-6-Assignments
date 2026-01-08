@@ -3,73 +3,124 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pricing</title>
+<title>Pricing Table CSS</title>
 
 <style>
+
 body{
-  font-family: sans-serif;
-  background:#C57C8A;
-  padding:30px;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg,#C57C8A,#8E3B5A);
+  padding:40px;
 }
 
-/* toggle */
+/* ---------- toggle ---------- */
 .toggle{
   text-align:center;
-  margin-bottom:20px;
+  margin-bottom:35px;
 }
-.toggle button{
-  padding:8px 16px;
-  border:none;
-  background:#732C3F;
-  color:#1A0B12;
-  font-size: 30px;
-  border-radius: 10px;
+
+.toggle input{
+  display:none;
+}
+
+.switch{
+  display:inline-block;
+  background:#F7E8EC;
+  padding:6px;
+  border-radius:30px;
   cursor:pointer;
 }
 
-/* cards */
+.switch span{
+  display:inline-block;
+  padding:8px 18px;
+  border-radius:20px;
+  font-size:14px;
+  color:#732C3F;
+  transition:0.3s;
+}
+
+#priceToggle:not(:checked) ~ .toggle .monthly{
+  background:#732C3F;
+  color:#fff;
+}
+
+#priceToggle:checked ~ .toggle .yearly{
+  background:#732C3F;
+  color:#fff;
+}
+
+/* ---------- cards ---------- */
 .pricing{
   display:flex;
-  gap:15px;
+  gap:20px;
+  max-width:900px;
+  margin:auto;
 }
 
 .card{
-  background:#F7E8EC;
-  padding:20px;
   flex:1;
+  background-color:rgba(255,255,255,0.9);
+  padding:25px;
   text-align:center;
-  border-radius:8px;
+  border-radius:18px;
   transition:0.3s;
 }
 
 .card:hover{
-  box-shadow:0 8px 15px rgba(0,0,0,0.15);
-  transform:translateY(-5px);
+  transform:translateY(-8px);
+  box-shadow:0 15px 30px rgba(0,0,0,0.2);
 }
 
 /* middle card */
-.active{
-  border:2px solid #333;
+.card.active{
+  background:linear-gradient(180deg,#FBE4EA,#F7CED8);
+  transform:scale(1.05);
 }
 
+/* price */
 .price{
-  font-size:28px;
+  font-size:32px;
+  font-weight:bold;
   margin:15px 0;
+  color:#732C3F;
 }
 
+.yearly{
+  display:none;
+}
+
+/* toggle logic */
+#priceToggle:checked ~ .pricing .monthly{
+  display:none;
+}
+#priceToggle:checked ~ .pricing .yearly{
+  display:block;
+}
+
+/* button */
 .card button{
-  padding:8px 18px;
+  margin-top:15px;
+  padding:10px 22px;
   border:none;
-  background:#e04c6a;
-  color:#1A0B12;
+  border-radius:25px;
+  background:#732C3F;
+  color:#fff;
   cursor:pointer;
-  border-radius: 30px;
+  transition:0.3s;
 }
 
-/* mobile */
+.card button:hover{
+  background:#8E3B5A;
+}
+
+/* ---------- mobile ---------- */
 @media(max-width:768px){
   .pricing{
     flex-direction:column;
+  }
+  .card.active{
+    transform:none;
   }
 }
 </style>
@@ -77,48 +128,42 @@ body{
 
 <body>
 
+<input type="checkbox" id="priceToggle">
+
 <div class="toggle">
-  <button onclick="changePrice()">Yearly</button>
+  <label class="switch" for="priceToggle">
+    <span class="monthly">Monthly</span>
+    <span class="yearly">Yearly</span>
+  </label>
 </div>
 
 <div class="pricing">
+
   <div class="card">
     <h3>Basic</h3>
-    <div class="price" data-m="৳500" data-y="৳5000">৳500</div>
+    <div class="price monthly">৳500</div>
+    <div class="price yearly">৳5000</div>
     <p>1 Project</p>
-    <button>Select</button>
+    <button>Select Plan</button>
   </div>
 
   <div class="card active">
     <h3>Standard</h3>
-    <div class="price" data-m="৳900" data-y="৳9000">৳900</div>
+    <div class="price monthly">৳900</div>
+    <div class="price yearly">৳9000</div>
     <p>5 Projects</p>
-    <button>Select</button>
+    <button>Select Plan</button>
   </div>
 
   <div class="card">
     <h3>Premium</h3>
-    <div class="price" data-m="৳1400" data-y="৳14000">৳1400</div>
-    <p>Unlimited</p>
-    <button>Select</button>
+    <div class="price monthly">৳1400</div>
+    <div class="price yearly">৳14000</div>
+    <p>Unlimited Access</p>
+    <button>Select Plan</button>
   </div>
+
 </div>
-
-<script>
-let yearly=false;
-
-function changePrice(){
-  yearly=!yearly;
-  let prices=document.querySelectorAll(".price");
-  let btn=document.querySelector(".toggle button");
-
-  prices.forEach(p=>{
-    p.innerText= yearly ? p.dataset.y : p.dataset.m;
-  });
-
-  btn.innerText= yearly ? "Monthly" : "Yearly";
-}
-</script>
 
 </body>
 </html>
