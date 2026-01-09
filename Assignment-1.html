@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Club</title>
+
+  <style>
+    body{
+      background-color:pink;
+    }
+    .align{
+      display:grid;
+      grid-template-areas:"header header"
+                          "logo main"
+                          "contact contact";
+      grid-template-rows:40px auto auto ;
+      grid-template-columns:repeat (2,1fr);
+      grid-gap:20px 20px;
+
+    }
+
+    .header{
+      grid-area: header;
+      padding:20;
+      position:sticky;
+      top:0;
+      color:deeppink;
+      background-color:black;
+      width:100%;
+    }
+
+    .logo{
+      grid-area: logo;
+      padding:20px;
+      margin:5px;
+
+    }
+
+    .main{
+      grid-area: main;
+      padding:20px;
+      margin:5px;
+
+    }
+
+    .contact{
+      grid-area: contact;
+      padding:80px;
+      margin:30px;
+    }
+
+    .profile{
+      display:flex;
+      flex-direction: column;
+    }
+  </style>
+   
+</head>
+<body>
+
+
+
+
+  <!--Main Section-->
+
+  <main class="align">
+    <section id="homepage">
+        <h1 class="align header">CodeCrafters</h1>
+  <div class="logo">     
+<h3 class="align">Welcome to CodeCrafters Club</h3>
+
+<div class="profile">
+<figure class="align">
+<img src="logo.png" alt="CodeCrafters logo" width="150" height="150">
+<figcaption>Where ideas turn into codes and coders turn into creators.<span>⏳</span></figcaption>
+</figure>
+</div>
+</div> 
+</section>
+
+<div class="main">
+
+<h4>Why you should join CodeCrafters?</h4>
+<section>
+  <ol>
+    <li>Hands-on coding experience</li>
+    <li>Beginner-friendly learning environment</li>
+    <li>Real-world project and teamwork</li>
+    <li>Workshops,hackathons, and competitions</li>
+  </ol>
+</section>
+<text><strong>If you wants to join,contact us.<span>🥰</span></strong></text>
+</div>
+</main>
+
+
+<!--Footer Section-->
+
+<section class="align contact">
+<footer id="contact">
+  <h2 class="h2">Contact Us</h2>
+  <p><i>Otishy Islam Puspi</i></p>
+  <a href="Tell:+88012343434">Tell:+88012343434</a>
+  <br>
+  <a href="www.facebook.com" target="_blank">Facebook</a>
+  <a href="www.instagram.com">Instagram</a>
+  
+  <p>&copy; 2025 CodeCrafters Club.</p>
+</section>
+
+</footer>
+</body>
+</html>
