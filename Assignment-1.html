@@ -3,112 +3,213 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>College Club</title>
-
+  <title>Project Layout</title>
   <style>
-    body{
-      background-color:pink;
-    }
-    .align{
+    .dashboard{
+      background-color:#94B4C1;
       display:grid;
-      grid-template-areas:"header header"
-                          "logo main"
-                          "contact contact";
-      grid-template-rows:40px auto auto ;
-      grid-template-columns:repeat (2,1fr);
-      grid-gap:20px 20px;
-
+      gap:5px;
+      grid-template-areas:"header header header"
+                          "sidebar myself myself"
+                          "sidebar myint myint"
+                          "sidebar myhby myhby"
+                          "sidebar myfpln myfpln"
+                          "footer footer footer";
+      grid-template-columns:repeat(3,1fr);
+      grid-template-rows:auto auto auto auto auto auto;
+      min-height:100vh;
+      padding:10px;
     }
 
     .header{
       grid-area: header;
-      padding:20;
-      position:sticky;
+      padding:5px;
+      margin:5px;
+      text-align: center;
+      color:darkblue;
+      background-color: lightblue;
+      position: sticky;
       top:0;
-      color:deeppink;
-      background-color:black;
-      width:100%;
-    }
+    } 
 
-    .logo{
-      grid-area: logo;
-      padding:20px;
+    .sidebar{
+      grid-area: sidebar;
+      padding:5px;
       margin:5px;
-
-    }
-
-    .main{
-      grid-area: main;
-      padding:20px;
-      margin:5px;
-
-    }
-
-    .contact{
-      grid-area: contact;
-      padding:80px;
-      margin:30px;
-    }
-
-    .profile{
       display:flex;
       flex-direction: column;
+      background-color:#0F2854;
+      color:aliceblue;
+      text-align: center;
+      gap:70px;
+      font-size: 20px;
     }
+
+    .sidebar a{
+      text-decoration: none;
+      padding:5px;
+      color:aliceblue;
+      font-size: 20px;
+      
+  
+    }
+
+    .myself{
+      grid-area: myself;
+      padding:5px;
+      margin:5px;
+      background-color:#EAE0CF;
+    }
+
+    .myint{
+      grid-area: myint;
+      padding:5px;
+      margin:5px;
+      background-color:#EAE0CF;
+    }
+
+    .myhby{
+      grid-area:myhby;
+      padding:5px;
+      margin:5px;
+      background-color:#EAE0CF;
+    }
+
+    .myfpln{
+      grid-area:myfpln;
+      padding:5px;
+      margin:5px;
+      background-color:#EAE0CF;
+    }
+
+    .footer{
+      grid-area:footer;
+      padding:5px;
+      margin:5px;
+      text-align: center;
+      background-color: lightblue;
+      color:#0F2854;
+      font-size:20px;
+    }
+
+    .footer a{
+      text-decoration:none;
+      color:darkblue;
+    }
+
+    h3{
+      color:#16325B;
+      font-size:20px;
+    }
+
+    p{
+      color:#050C9C;
+    }
+
+    /*Mobile View*/
+
+   @media (max-width:768px){
+
+    .dashboard{
+      grid-template-areas:
+        "header"
+        "sidebar"
+        "myself"
+        "myint"
+        "myhby"
+        "myfpln"
+        "footer" ;
+    grid-template-columns:1fr ;
+
+    }
+    .sidebar{
+    display:flex;
+    flex-direction: row;
+    justify-content:space-around;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+    position:sticky;
+    top:0;
+    gap:15px;
+    padding:10px;
+    }
+  .sidebar a{
+
+    font-size: 14px;
+  }
+
+  .sidebar h2{
+    font-size: 16px;
+  }
+   } 
+
+
   </style>
-   
 </head>
 <body>
 
+  <div class="dashboard">
+  <Header class="header">
+    <h1>About My life</h1>
+    <h4>Hello!Iam Puspi🙋</h4>
+  </Header>
+
+    <nav class="sidebar">
+    <h2>Dashboard</h2>
+    <a href="#">Experience</a>
+    <a href="#">Goals</a>
+    <a href="#">Achievements</a>
+  </nav>
 
 
+   
+      <div class="myself">
+        <h3>About Myself</h3>
+       <p>I am a curious learner who loves exploring programming and technology.
+I am building my skills in web development with HTML, CSS, and JavaScript.
+Creating small projects helps me learn and grow every day.
+I enjoy challenges and learning new things.
+Dreaming big and moving forward step by step 🚀</p> 
+       </div>
 
-  <!--Main Section-->
+      <div class="myint">
+        <h3>About My Interest</h3>
+        <p>I am passionate about web development and technology 💻
+I enjoy designing and building simple web projects 🌐
+Learning new tools and improving my skills motivates me 🚀
+I love exploring creative solutions through coding ✨</p>
+        </div>
 
-  <main class="align">
-    <section id="homepage">
-        <h1 class="align header">CodeCrafters</h1>
-  <div class="logo">     
-<h3 class="align">Welcome to CodeCrafters Club</h3>
+    
 
-<div class="profile">
-<figure class="align">
-<img src="logo.png" alt="CodeCrafters logo" width="150" height="150">
-<figcaption>Where ideas turn into codes and coders turn into creators.<span>⏳</span></figcaption>
-</figure>
-</div>
-</div> 
-</section>
+    <div class="myhby">
+      <h3>About My Hobby</h3>
+      <p>I love drawing and expressing creativity through art.
+I enjoy learning new skills like cooking, sewing, and gardening.
+Reading books helps me relax and gain new knowledge.
+I love traveling to new places and capturing moments through photography.</p>
+    </div>
 
-<div class="main">
-
-<h4>Why you should join CodeCrafters?</h4>
-<section>
-  <ol>
-    <li>Hands-on coding experience</li>
-    <li>Beginner-friendly learning environment</li>
-    <li>Real-world project and teamwork</li>
-    <li>Workshops,hackathons, and competitions</li>
-  </ol>
-</section>
-<text><strong>If you wants to join,contact us.<span>🥰</span></strong></text>
-</div>
-</main>
-
-
-<!--Footer Section-->
-
-<section class="align contact">
-<footer id="contact">
-  <h2 class="h2">Contact Us</h2>
-  <p><i>Otishy Islam Puspi</i></p>
-  <a href="Tell:+88012343434">Tell:+88012343434</a>
-  <br>
-  <a href="www.facebook.com" target="_blank">Facebook</a>
-  <a href="www.instagram.com">Instagram</a>
+    <div class="myfpln">
+      <h3>About My Future Plan</h3>
+     <p>I plan to build a strong foundation in web development and programming.
+I want to learn new technologies and improve my skills continuously.
+In the future, I hope to work on creative and impactful projects.
+My goal is to grow both professionally and personally through </p> learning.
+    </div>
   
-  <p>&copy; 2025 CodeCrafters Club.</p>
-</section>
 
-</footer>
+  <footer class="footer">
+    <div class="contact">
+      <h3>Contact Me</h3>
+      <a href="www.facebook.com">Facebook</a><br>
+      <a href="www.instagram.com">Instagram</a><br>
+      <a href="0194767646"><strong>Tel:</strong>0194767646</a>
+      <p>&copy; All rights reserved by Puspi</p>
+    </div>
+  </footer>
+  </div>
+  
 </body>
 </html>
