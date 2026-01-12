@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Positioning Practice</title>
+
+<style>
+
+body{
+  font-family: Arial, sans-serif;
+  height: 2000px;
+  margin: 0;
+  padding: 20px;
+}
+
+.image-box{
+  position: relative;
+  width: 300px;
+}
+
+.image-box img{
+  width: 100%;
+  display: block;
+}
+
+.overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.image-box:hover .overlay{
+  opacity: 1;
+}
+
+
+.chat-widget{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: purple;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 50px;
+}
+
+th, td{
+  border: 1px solid black;
+  padding: 10px;
+}
+
+th{
+  background: lightblue;
+  position: sticky;
+  top: 0;
+}
+
+
+.modal-bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+}
+
+.modal{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: white;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+}
+
+.modal-bg:target{
+  display: block;
+}
+
+
+.tooltip-box{
+  position: relative;
+  display: inline-block;
+  margin-top: 40px;
+}
+
+.tooltip{
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: black;
+  color: white;
+  padding: 5px 10px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tooltip-box:hover .tooltip{
+  opacity: 1;
+}
+</style>
+</head>
+
+<body>
+
+<h2>1️⃣ Image with Overlay</h2>
+<div class="image-box">
+  <img src="logo.png">
+  <div class="overlay">Hello Overlay</div>
+</div>
+
+<h2>2️⃣ Fixed Chat Widget</h2>
+<div class="chat-widget">Chat 💬</div>
+
+<h2>3️⃣ Sticky Table Header</h2>
+<table>
+<tr>
+  <th>Name</th>
+  <th>Age</th>
+</tr>
+<tr><td>A</td><td>20</td></tr>
+<tr><td>B</td><td>22</td></tr>
+<tr><td>C</td><td>24</td></tr>
+<tr><td>D</td><td>26</td></tr>
+<tr><td>E</td><td>28</td></tr>
+</table>
+
+<h2>4️⃣ Modal Popup</h2>
+<a href="#modal">Open Modal</a>
+
+<div id="modal" class="modal-bg">
+  <div class="modal">
+    <h3>Modal Popup</h3>
+    <p>This is absolute modal</p>
+    <a href="#">Close</a>
+  </div>
+</div>
+
+<h2>5️⃣ Tooltip</h2>
+<div class="tooltip-box">
+  Hover me
+  <div class="tooltip">This is tooltip</div>
+</div>
+
+</body>
+</html>
